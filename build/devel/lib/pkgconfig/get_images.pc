@@ -1,8 +1,0 @@
-prefix=/home/chaitanya/github/Label6DPose/build/devel
-
-Name: get_images
-Description: Description of get_images
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/chaitanya/github/Label6DPose/build/devel/lib -lobjectDetect -lINCLUDE -linclude
-Requires: image_transport tf geometry_msgs image_geometry pcl_ros roscpp roslib cv_bridge
