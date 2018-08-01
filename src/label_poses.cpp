@@ -27,12 +27,13 @@
 #include <tf/transform_datatypes.h>
 #include <sensor_msgs/PointCloud2.h>
 
+#include <ros/package.h>
+
 #define PI 3.14
 
 typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 typedef pcl::PointCloud<pcl::PointXYZRGB> PointCloudRGB;
 
-std::string repo_path = "/home/chaitanya/github/Label6DPose";
 tf::StampedTransform model_tf;
 PointCloudRGB::Ptr sceneCloud;
 PointCloudRGB::Ptr modelCloud;
@@ -210,10 +211,9 @@ void readDepthImage(cv::Mat &depthImg, std::string path){
   }
 
 int main( int ac, char* av[] ) {
-    std::string node_name;
+    ros::init(ac, av, "label_pose");
 
-    ros::init(ac, av, node_name);
-    ros::NodeHandle main_node_handle;
+    std::string repo_path = ros::package::getPath("label_poses");
 
     tIncr = 0.0;
     rIncr = 0;

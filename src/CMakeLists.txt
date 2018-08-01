@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(get_images)
+project(label_poses)
 
 find_package (PCL REQUIRED COMPONENTS io common visualization features) 
 
@@ -38,12 +38,12 @@ include_directories(
 
 add_library(
 			${PROJECT_NAME}_lib 
-			${PROJECT_SOURCE_DIR}/get_image.cpp)
+			${PROJECT_SOURCE_DIR}/label_poses.cpp)
 
 target_link_libraries(${PROJECT_NAME}_lib 
                       ${catkin_LIBRARIES}
                       ${PCL_LIBRARIES} )
 
-add_executable(get_images ${PROJECT_SOURCE_DIR}/get_image.cpp)
-target_link_libraries(get_images ${PROJECT_NAME}_lib)
+add_executable(label_poses ${PROJECT_SOURCE_DIR}/label_poses.cpp)
+target_link_libraries(label_poses ${PROJECT_NAME}_lib)
 
